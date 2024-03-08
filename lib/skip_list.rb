@@ -15,6 +15,8 @@ end
 
 class SkipNodeList
 
+  attr_accessor :head
+
   def initialize(max_height, pr = 0.5, seed = nil)
     @max_height = max_height
     @pr = pr
@@ -58,8 +60,8 @@ class SkipNodeList
 
   def search(node, elem, height)
     return nil if node.nil?
-    return nil if node.elem.to_i > elem
-    
+    return nil if (node.elem != 'H') && node.elem > elem
+
     return node if node.elem == elem
     height.downto(0).each do |idx|
       found = search(node.next[idx], elem, idx)
