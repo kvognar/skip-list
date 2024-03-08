@@ -5,16 +5,6 @@ RSpec.describe SkipNodeList do
 
   let(:skip_list) { described_class.new(5, 0.5, 201) }
 
-  let(:expected_before_remove) do
-    <<~GRAPH
-[H]------------------------------------>[9]
-[H]------------------------------------>[9]
-[H]--------------------->[6]----------->[9]
-[H]----------->[3]------>[6]------>[8]->[9]
-[H]->[1]->[2]->[3]->[5]->[6]->[7]->[8]->[9]
-GRAPH
-  end
-
 
   describe 'insert_points' do
     context 'when the list has only a head' do

@@ -58,6 +58,8 @@ class SkipNodeList
 
   def search(node, elem, height)
     return nil if node.nil?
+    return nil if node.elem.to_i > elem
+    
     return node if node.elem == elem
     height.downto(0).each do |idx|
       found = search(node.next[idx], elem, idx)
